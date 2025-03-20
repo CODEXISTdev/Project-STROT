@@ -22,7 +22,6 @@ Loding..                                                          %
  
   ██████████████████  ██████  █
 
-
 ### **💀 Why STROT?**  
 🔹 **Time is Money** – No more one-by-one attack attempts; STROT **automates the process**.  
 🔹 **AI Does the Heavy Lifting** – Intelligent attack prediction means **no more blind guessing**.  
