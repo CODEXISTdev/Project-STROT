@@ -1,14 +1,50 @@
 import fpdf
 import os
-
+from datetime import datetime
 
 
 class Basics:
     def __init__(self):
         self.pdf = fpdf.FPDF(orientation='P', unit='mm', format='A4')
 
+    def date(self):
+        today = datetime.today().strftime("%B %d %Y")
+        self.pdf.add_font('RobotoMono', '', "RobotoMono-ExtraLight.ttf", uni=True)
+        self.pdf.set_y(-140)
+        self.pdf.set_text_color(115,115,115)
+        self.pdf.set_font('RobotoMono', '', 12)
+        self.pdf.cell(0, 10, today, 0, 0, 'L')  # 'R' = right aligned
+
+
+    def logo(self):
+        self.pdf.set_margins(20, 15, 20)  # Set custom margins
+        # self.pdf.set_auto_page_break(auto=True, margin=20)  # Bottom margin
+
+        # Logo settings
+        logo_path = "/fpdp/utils/logo.png"
+        logo_width = 15
+        logo_height = 7
+
+        custom_right_margin = 5
+        custom_bottom_margin = 5
+
+        # Calculate position
+        x_pos = self.pdf.w - custom_right_margin - logo_width
+        y_pos = self.pdf.h - custom_bottom_margin - logo_height
+
+        # Add logo
+        self.pdf.image(logo_path, x=x_pos, y=y_pos, w=logo_width, h=logo_height)
+
+
     def add_page(self):
         self.pdf.add_page()
+
+
+    def first_img(self):
+        self.pdf.image("first_page_image.png", x=0, y=0, w=210, h=297)
+        self.date()
+        self.pdf.add_page()
+
 
     def heading1(self, heading: str = ""):
         self.pdf.set_font("times", style="b", size=16)

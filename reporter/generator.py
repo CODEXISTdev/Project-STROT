@@ -6,6 +6,8 @@ class generator:
     def __init__(self):
         self.base= Basics()
         self.base.add_page()
+        self.base.first_img()
+
 
     def exec_summary(self, para1, bullet, para2):
         self.base.heading1("Executive Summary")
@@ -14,10 +16,13 @@ class generator:
         self.base.bullet_points(bullet)
         self.base.body(para2)
 
+
     def summary_result(self, para1,para2):
         self.base.heading1("Summary of Results")
         self.base.body(para1)
         self.base.body(para2)
+
+
 
     def project_scope(self, para1, num1,para2,num2):
         self.base.heading1("Project Scope")
@@ -27,10 +32,12 @@ class generator:
         self.base.numbering_points(num2)
         self.base.add_page()
 
+
     def tech_details(self, para1):
         self.base.heading1("Technial Details")
         self.base.line()
         self.base.body(para1)
+
 
     def time_line(self, para1):
         self.base.heading2("Timeline of Events")
@@ -46,6 +53,9 @@ class generator:
         self.base.heading2("How the Attack Operated")
         self.base.heading3("December Exploid")
         self.base.body(para2)
+        # self.base.body(para2)
+        # self.base.body(para2)
+        # self.base.body(para2)
         self.base.body(para3)
         self.base.body(para4)
         self.base.body(para5)
@@ -71,10 +81,13 @@ class generator:
         self.base.heading2("Validation of Accelion Remedition of the Exploied Valnebilities")
         self.base.body(para15)
         self.base.body(para16)
+
         self.base.body(para17)
+
 
     def table(self,column,data):
         self.base.add_table(column,data)
+
 
     def testing(self,para1,bullet,para2,para3,para4,para5,para6,para7,para8):
         self.base.heading2("Testing FTA for Additional Vulnerabilities")
@@ -93,6 +106,7 @@ class generator:
 
     def desclaimer(self,disc):
         self.base.disclaimer(disc)
+
 
     def code_line(self, body_text):
         self.base.code(body_text)
@@ -138,7 +152,7 @@ if __name__== "__main__":
      but also the leap into electronic typesetting, remaining essentially unchanged. ""","""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
      scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. """,["Lorem Ipsum is simply dummy text of the printing and typesetting industry.","Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
     " when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries"," but also the leap into electronic typesetting, remaining essentially unchanged."],"""this the the bullet point in the project""","""who are we will take from NLP model","paste here and we will easly read it""",
-                 ["this the the bullet point in the project","ganesh"],"""this also one of the paragraph""",["aurangya","khan","sheikh"],"""paragraph""",["first","second","third","fourth"],"""paragraph""","""paragraph""","""paragraph""","""\n\n\n\nthis is the paragraph""")
+                 ["this the the bullet point in the project","ganesh"],"""this also one of the paragraph""",["aurangya","khan","sheikh"],"""paragraph""",["first","second","third","fourth"],"""paragraph""","""paragraph""","""paragraph this is paragraph to check the""","""\n\n\n\nthis is the paragraph""")
 
     obj.table(["Id","name","age","city","Days"], [
         [1, "Alice", 24, "New York",11],

@@ -1,29 +1,32 @@
-def add_table(self, columns, data):
-    """Generate a table with columns and data."""
-    self.pdf.set_font("Arial", size=10)
-    col_width = self.pdf.w / (len(columns) + 1)
-    row_height = 10
+from fpdf import FPDF
+from datetime import datetime
 
-    # Print column headers (Bold, White Text, Dark Background)
-    self.pdf.set_font("Arial", style='B', size=10)  # Bold for header
-    self.pdf.set_text_color(255, 255, 255)  # White text
-    self.pdf.set_fill_color(65, 79, 99)  # Dark background
+class PDF(FPDF):
+    def footer(self):
+        # Get today's date
+        today = datetime.today().strftime('%d-%m-%Y')
 
-    for col in columns:
-        self.pdf.cell(col_width, row_height, col, border=1, align="L", fill=True)
+        # Set position 20 units from bottom
+        self.set_y(-20)
 
-    self.pdf.ln(row_height)  # Move to the next line
-    self.pdf.set_text_color(0, 0, 0)  # Reset text color
-    self.pdf.set_font("Arial", style='', size=10)  # Normal text for rows
+        # Add logo at left
+        self.image('logo.png', x=10, y=self.get_y(), w=30)
 
-    # Print table rows with alternating colors
-    for row_idx, row in enumerate(data):
-        if row_idx % 2 == 0:
-            self.pdf.set_fill_color(255, 255, 255)  # White background
-        else:
-            self.pdf.set_fill_color(242, 242, 242)  # Light gray background
+        # Set font for date
+        self.set_font('Arial', 'I', 10)
 
-        for item in row:
-            self.pdf.cell(col_width, row_height, str(item), border=1, align="L", fill=True)
+        # Add date on the right side
+        self.set_x(-50)  # move to right margin
+        self.cell(0, 10, f"Date: {today}", 0, 0, 'R')  # 'R' = right aligned
 
-        self.pdf.ln(row_height)  # Move to the next line
+# Create PDF
+pdf = PDF()
+
+# Add some pages
+for i in range(3):
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+    pdf.cell(200, 10, txt=f"This is page {i + 1}", ln=True)
+
+# Save the file
+pdf.output("output_with_logo_and_date.pdf")
