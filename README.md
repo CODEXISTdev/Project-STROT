@@ -1,3 +1,4 @@
+# STROT - A Red Teaming Tool
 ### **🔥 Welcome to Project STROT – Hack Smarter, Not Harder! 🔥**  
 
 **👾 Red Teaming? Too slow.**  
