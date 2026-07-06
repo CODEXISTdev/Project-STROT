@@ -19,7 +19,7 @@ You bring the **target**, we bring the **firepower**.
 
 **#HackTheFuture | #NoMoreManualRedTeaming | #STROTForTheWin**
 
-Loding..                                                          %
+Loading..                                                          %
  
   ██████████████████  ██████  █
 
